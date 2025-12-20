@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>🚚 Перевозка грузов Алматы — Без звонков</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+--accent:#00ff99;
+--danger:#ff3b3b;
+}
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family:Inter,system-ui,Arial;
+background:radial-gradient(circle at top,#0f2027,#05080c 70%);
+color:#fff;
+}
+.container{max-width:520px;margin:auto;padding:18px}
+.glass{
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(18px);
+border-radius:22px;
+padding:22px;
+box-shadow:0 25px 60px rgba(0,0,0,.7);
+}
+.hero{text-align:center}
+.hero h1{font-size:28px}
+.hero span{color:var(--accent)}
+.tag{
+margin-top:10px;
+display:inline-block;
+padding:6px 16px;
+border-radius:999px;
+background:linear-gradient(135deg,#00ff99,#00ccff);
+color:#000;
+font-weight:900;
+font-size:13px;
+}
+.limit{
+margin-top:12px;
+padding:10px;
+border-radius:14px;
+background:linear-gradient(135deg,var(--danger),#ff0000);
+font-weight:900;
+animation:pulse 1.5s infinite;
+}
+@keyframes pulse{
+0%{opacity:1}
+50%{opacity:.7}
+100%{opacity:1}
+}
+.card{
+background:#fff;
+color:#111;
+border-radius:18px;
+padding:18px;
+margin-top:16px;
+}
+.alert{
+background:linear-gradient(135deg,#ff4d4d,#ff0000);
+color:#fff;
+font-weight:900;
+text-align:center;
+padding:18px;
+border-radius:18px;
+margin-top:16px;
+}
+.buttons button{
+width:100%;
+padding:16px;
+margin-top:10px;
+border:none;
+border-radius:16px;
+font-size:16px;
+font-weight:900;
+cursor:pointer;
+}
+.fast{background:#ffb300}
+.slow{background:#cfd8dc}
+.loader{
+display:none;
+margin-top:10px;
+text-align:center;
+font-weight:700;
+}
+.loader span{
+display:inline-block;
+width:6px;height:6px;
+background:#000;border-radius:50%;
+margin:0 3px;
+animation:dot 1.2s infinite;
+}
+.loader span:nth-child(2){animation-delay:.2s}
+.loader span:nth-child(3){animation-delay:.4s}
+@keyframes dot{
+0%{opacity:.2}
+50%{opacity:1}
+100%{opacity:.2}
+}
+.wa,.tg{
+display:block;
+text-decoration:none;
+padding:18px;
+border-radius:18px;
+margin-top:12px;
+text-align:center;
+font-size:17px;
+font-weight:900;
+}
+.wa{background:linear-gradient(135deg,#25d366,#00ff99);color:#000}
+.tg{background:linear-gradient(135deg,#0088cc,#00ccff);color:#000}
+.copy{text-align:center;margin-top:10px;cursor:pointer;font-size:14px;opacity:.8}
+.footer{text-align:center;font-size:11px;opacity:.5;margin-top:20px}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<div class="glass hero">
+<h1>🚚 Перевозка грузов<br><span>по Алматы</span></h1>
+<p>Быстро • Чётко • <b>Без звонков</b></p>
+<div class="tag">🟢 Свободен сейчас</div>
+<div class="limit">⏳ Осталось 1 окно сегодня</div>
+</div>
+
+<div class="card">
+<h2>📦 Что перевожу</h2>
+<ul>
+<li>До <b>1,2 т</b></li>
+<li>Размер до <b>2 × 0,5 м</b></li>
+<li>Мебель • техника</li>
+<li>Стройматериалы • коробки</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>⏱ Как срочно?</h2>
+<div class="buttons">
+<button class="fast" onclick="choose('СРОЧНО')">🚀 Срочно</button>
+<button class="slow" onclick="choose('НЕ СРОЧНО')">⏳ Не срочно</button>
+</div>
+<div class="loader" id="loader">
+Строю маршрут
+<span></span><span></span><span></span>
+</div>
+</div>
+
+<div class="alert">
+❗ ЗВОНКИ НЕ ПРИНИМАЮ  
+<br>ТОЛЬКО СООБЩЕНИЯ
+</div>
+
+<div class="card">
+<h2>✍️ Сообщение</h2>
+<div id="msg">
+Здравствуйте! Нужно перевезти груз.<br>
+Откуда → Куда → Что везём
+</div>
+<div class="copy" onclick="copyText()">📋 Скопировать текст</div>
+</div>
+
+<a id="wa" class="wa" target="_blank">📲 Написать в WhatsApp</a>
+<a class="tg" href="https://t.me/+87066363705" target="_blank">✈️ Написать в Telegram</a>
+
+<div class="footer">🚚 Грузоперевозки Алматы</div>
+
+</div>
+
+<script>
+function choose(type){
+document.getElementById("loader").style.display="block";
+setTimeout(()=>{
+document.getElementById("loader").style.display="none";
+const text=`Здравствуйте! ${type}. Нужно перевезти груз:\nОткуда → Куда → Что везём`;
+document.getElementById("msg").innerText=text;
+document.getElementById("wa").href=
+`https://wa.me/87066363705?text=${encodeURIComponent(text)}`;
+},1200);
+}
+function copyText(){
+navigator.clipboard.writeText(document.getElementById("msg").innerText);
+alert("Текст скопирован");
+}
+</script>
+
+</body>
+</html>
