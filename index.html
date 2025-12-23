@@ -16,9 +16,10 @@
             --glass-border: rgba(255, 255, 255, 0.1);
             --danger: #ff4b4b;
             --shadow: rgba(0, 255, 163, 0.2);
+            --tg-color: #0088cc;
+            --inst-color: #e4405f;
         }
 
-        /* Светлая тема (автоматически) */
         [data-theme="light"] {
             --bg: #f0f2f5;
             --card-bg: #ffffff;
@@ -51,7 +52,6 @@
 
         .container { max-width: 480px; margin: 0 auto; padding: 20px; position: relative; }
 
-        /* Шапка */
         .header {
             background: var(--card-bg);
             backdrop-filter: blur(20px);
@@ -66,7 +66,6 @@
         .header h1 { font-size: 32px; margin: 0; font-weight: 900; letter-spacing: -1px; }
         .header span { color: var(--accent); }
 
-        /* Инфо-блоки */
         .info-section {
             background: var(--card-bg);
             border: 1px solid var(--glass-border);
@@ -86,21 +85,22 @@
             gap: 10px;
         }
 
-        /* Стили Таблицы Прайса */
         .price-table { width: 100%; border-collapse: collapse; font-size: 13px; }
         .price-table tr { border-bottom: 1px solid var(--glass-border); }
         .price-table td { padding: 12px 5px; }
         .price-table td:last-child { text-align: right; font-weight: bold; color: var(--accent); }
 
-        /* Кнопки */
         .social-btn {
             display: flex; align-items: center; justify-content: center; gap: 12px;
-            padding: 20px; border-radius: 24px;
-            text-decoration: none; font-weight: 800; font-size: 18px;
-            margin-bottom: 12px; transition: 0.3s;
+            padding: 18px; border-radius: 22px;
+            text-decoration: none; font-weight: 800; font-size: 16px;
+            margin-bottom: 10px; transition: 0.3s;
             border: none; cursor: pointer; width: 100%;
         }
+
         .wa { background: #25d366; color: #fff; }
+        .tg { background: var(--tg-color); color: #fff; }
+        .inst { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%); color: #fff; }
         .share { background: var(--text); color: var(--bg); }
 
         .btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -117,17 +117,17 @@
 
         .no-calls {
             text-align: center; font-size: 12px; color: var(--danger);
-            font-weight: bold; margin-bottom: 15px;
+            font-weight: bold; margin-bottom: 15px; text-transform: uppercase;
         }
 
         .footer-text { text-align: center; opacity: 0.3; font-size: 10px; margin-top: 30px; }
 
-        /* Иконка переключения темы (ручная) */
         .theme-toggle {
             position: absolute; top: 10px; right: 20px;
             background: var(--card-bg); border: 1px solid var(--glass-border);
             color: var(--text); padding: 8px; border-radius: 50%; width: 35px; height: 35px;
             display: flex; align-items: center; justify-content: center; cursor: pointer;
+            z-index: 10;
         }
     </style>
 </head>
@@ -146,7 +146,7 @@
     </div>
 
     <div class="info-section">
-        <div class="section-title">⚡ Выберите режим</div>
+        <div class="section-title">⚡ Выберите режим перевозки</div>
         <div class="btn-group">
             <button class="mode-btn active" onclick="setMode('СРОЧНО', this)">🚀 Срочно</button>
             <button class="mode-btn" onclick="setMode('ПЛАНОВО', this)">📅 Ко времени</button>
@@ -154,10 +154,18 @@
     </div>
 
     <div class="contacts">
-        <div class="no-calls">📵 ЗВОНКИ НЕ ПРИНИМАЮТСЯ</div>
+        <div class="no-calls">📵 ЗВОНКИ НЕ ПРИНИМАЮТСЯ — ТОЛЬКО ЧАТ</div>
         
         <a id="wa-link" href="#" class="social-btn wa" target="_blank">
             <i class="fab fa-whatsapp fa-lg"></i> Написать в WhatsApp
+        </a>
+
+        <a href="https://t.me/+77066363705" class="social-btn tg" target="_blank">
+            <i class="fab fa-telegram-plane fa-lg"></i> Написать в Telegram
+        </a>
+
+        <a href="https://www.instagram.com/gruzoperevozka__almaty?igsh=MXhwZzhleXNpYnQzaQ%3D%3D&utm_source=qr" class="social-btn inst" target="_blank">
+            <i class="fab fa-instagram fa-lg"></i> Наш Instagram
         </a>
 
         <button onclick="shareSite()" class="social-btn share">
@@ -177,7 +185,7 @@
     <div class="info-section" style="border-left: 4px solid var(--danger);">
         <div class="section-title" style="color: var(--danger);">❌ Мы не перевозим</div>
         <div style="font-size: 12px; opacity: 0.8;">
-            Мусор, пианино, сейфы, оружие, наличные средства, грузы длиннее кузова.
+            Мусор (бытовой/строй), пианино, сейфы, оружие, наличные, грузы длиннее кузова.
         </div>
     </div>
 
@@ -185,28 +193,26 @@
 </div>
 
 <script>
-const myNumber = "787023036363";
+const myNumberWA = "787023036363";
 
-// 1. Функция "Поделиться"
 async function shareSite() {
     if (navigator.share) {
         try {
             await navigator.share({
                 title: 'CARGO PRO — Перевозки по РК',
-                text: 'Надежные грузоперевозки по Казахстану. Только WhatsApp.',
+                text: 'Профессиональные грузоперевозки по Казахстану.',
                 url: window.location.href
             });
-        } catch (err) { console.log('Отмена шеринга'); }
+        } catch (err) { console.log('Share cancelled'); }
     } else {
-        alert("Скопируйте ссылку: " + window.location.href);
+        alert("Ссылка: " + window.location.href);
     }
 }
 
-// 2. Умная тема (День/Ночь)
 function initTheme() {
     const hour = new Date().getHours();
     const isNight = hour < 7 || hour > 19;
-    if (!isNight) toggleTheme(); // Если день — включаем светлую
+    if (!isNight) toggleTheme();
 }
 
 function toggleTheme() {
@@ -221,7 +227,6 @@ function toggleTheme() {
     }
 }
 
-// 3. Настройка режима WhatsApp
 function setMode(mode, btn) {
     document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
@@ -230,10 +235,9 @@ function setMode(mode, btn) {
 
 function updateLink(mode) {
     const message = `Здравствуйте! Нужна перевозка (${mode}).\n📍 Откуда:\n🏁 Куда:\n📦 Что везем:`;
-    document.getElementById('wa-link').href = `https://wa.me/${myNumber}?text=${encodeURIComponent(message)}`;
+    document.getElementById('wa-link').href = `https://wa.me/${myNumberWA}?text=${encodeURIComponent(message)}`;
 }
 
-// Запуск
 initTheme();
 updateLink('СРОЧНО');
 </script>
