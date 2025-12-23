@@ -1,223 +1,241 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<title>🚚 CARGO PRO — Алматы</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <title>🚚 CARGO PRO — Перевозки по Казахстану</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Профессиональные грузоперевозки по Республике Казахстан. Быстрая подача, расчет стоимости в WhatsApp.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<style>
-:root {
-    --bg: #050505;
-    --accent: #00ffa3;
-    --glass: rgba(255, 255, 255, 0.03);
-    --glass-border: rgba(255, 255, 255, 0.1);
-}
+    <style>
+        :root {
+            --bg: #050505;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --accent: #00ffa3;
+            --text: #ffffff;
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --danger: #ff4b4b;
+            --shadow: rgba(0, 255, 163, 0.2);
+        }
 
-* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        /* Светлая тема (автоматически) */
+        [data-theme="light"] {
+            --bg: #f0f2f5;
+            --card-bg: #ffffff;
+            --text: #1a1a1a;
+            --glass-border: rgba(0, 0, 0, 0.05);
+            --accent: #00b372;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
 
-body {
-    margin: 0;
-    font-family: 'SF Pro Display', system-ui, sans-serif;
-    background: var(--bg);
-    color: #fff;
-    overflow-x: hidden;
-}
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; transition: background 0.5s, color 0.5s; }
 
-/* Эффект свечения на фоне */
-.glow {
-    position: fixed;
-    width: 300px; height: 300px;
-    background: var(--accent);
-    filter: blur(150px);
-    opacity: 0.1;
-    z-index: -1;
-    top: 10%; left: -10%;
-}
+        body {
+            margin: 0;
+            font-family: 'SF Pro Display', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.5;
+        }
 
-.container { max-width: 450px; margin: 0 auto; padding: 20px; position: relative; }
+        .glow {
+            position: fixed;
+            width: 300px; height: 300px;
+            background: var(--accent);
+            filter: blur(150px);
+            opacity: 0.1;
+            z-index: -1;
+            top: 10%; left: -10%;
+        }
 
-/* Шапка */
-.header {
-    background: var(--glass);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border);
-    padding: 30px 20px;
-    border-radius: 35px;
-    text-align: center;
-    margin-bottom: 20px;
-}
+        .container { max-width: 480px; margin: 0 auto; padding: 20px; position: relative; }
 
-.header h1 { font-size: 34px; margin: 0; font-weight: 900; letter-spacing: -1.5px; }
-.header span { color: var(--accent); text-shadow: 0 0 20px rgba(0,255,163,0.5); }
+        /* Шапка */
+        .header {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            padding: 30px 20px;
+            border-radius: 35px;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px var(--shadow);
+        }
 
-/* Блок БОТА */
-.bot-card {
-    background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
-    border: 1px solid var(--glass-border);
-    border-radius: 25px;
-    padding: 20px;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
-    animation: slideIn 0.8s ease-out;
-}
+        .header h1 { font-size: 32px; margin: 0; font-weight: 900; letter-spacing: -1px; }
+        .header span { color: var(--accent); }
 
-@keyframes slideIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        /* Инфо-блоки */
+        .info-section {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
 
-.bot-avatar {
-    width: 50px; height: 50px;
-    background: var(--accent);
-    border-radius: 18px;
-    display: flex; align-items: center; justify-content: center;
-    color: #000; font-size: 24px;
-    box-shadow: 0 0 15px var(--accent);
-}
+        .section-title {
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-.bot-content h4 { margin: 0 0 5px 0; font-size: 16px; color: var(--accent); }
-.bot-bubble { font-size: 14px; opacity: 0.9; line-height: 1.4; }
+        /* Стили Таблицы Прайса */
+        .price-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        .price-table tr { border-bottom: 1px solid var(--glass-border); }
+        .price-table td { padding: 12px 5px; }
+        .price-table td:last-child { text-align: right; font-weight: bold; color: var(--accent); }
 
-/* Кнопки выбора */
-.action-card {
-    background: var(--glass);
-    border-radius: 30px;
-    padding: 20px;
-    border: 1px solid var(--glass-border);
-    margin-bottom: 20px;
-}
+        /* Кнопки */
+        .social-btn {
+            display: flex; align-items: center; justify-content: center; gap: 12px;
+            padding: 20px; border-radius: 24px;
+            text-decoration: none; font-weight: 800; font-size: 18px;
+            margin-bottom: 12px; transition: 0.3s;
+            border: none; cursor: pointer; width: 100%;
+        }
+        .wa { background: #25d366; color: #fff; }
+        .share { background: var(--text); color: var(--bg); }
 
-.btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
+        .btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .mode-btn {
+            background: rgba(128,128,128,0.1);
+            border: 1px solid transparent;
+            padding: 12px;
+            border-radius: 15px;
+            color: var(--text);
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .mode-btn.active { background: var(--accent); color: #000; }
 
-.mode-btn {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid transparent;
-    padding: 15px;
-    border-radius: 20px;
-    color: #fff;
-    font-weight: 700;
-    cursor: pointer;
-    transition: 0.3s;
-}
+        .no-calls {
+            text-align: center; font-size: 12px; color: var(--danger);
+            font-weight: bold; margin-bottom: 15px;
+        }
 
-.mode-btn.active {
-    background: #fff; color: #000;
-    transform: scale(1.05);
-}
+        .footer-text { text-align: center; opacity: 0.3; font-size: 10px; margin-top: 30px; }
 
-/* Кнопки контактов */
-.social-btn {
-    display: flex; align-items: center; justify-content: center; gap: 12px;
-    padding: 22px; border-radius: 24px;
-    text-decoration: none; font-weight: 800; font-size: 18px;
-    margin-bottom: 12px; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.wa { background: #25d366; color: #000; box-shadow: 0 10px 30px rgba(37,211,102,0.3); }
-.tg { background: #0088cc; color: #fff; box-shadow: 0 10px 30px rgba(0,136,204,0.3); }
-.inst { background: radial-gradient(circle at 33% 100%, #fed373 4%, #f15245 30%, #d92e7f 62%, #9b36b7 85%, #515ecf); color: #fff; }
-.call { background: #fff; color: #000; }
-
-.social-btn:hover { transform: translateY(-5px) scale(1.02); }
-
-/* Подсказки бота */
-.bot-hints { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
-.hint {
-    font-size: 11px; background: rgba(255,255,255,0.1);
-    padding: 6px 12px; border-radius: 100px; cursor: pointer;
-}
-
-</style>
+        /* Иконка переключения темы (ручная) */
+        .theme-toggle {
+            position: absolute; top: 10px; right: 20px;
+            background: var(--card-bg); border: 1px solid var(--glass-border);
+            color: var(--text); padding: 8px; border-radius: 50%; width: 35px; height: 35px;
+            display: flex; align-items: center; justify-content: center; cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
-<div class="glow"></div>
+<div class="glow" id="glow"></div>
 
 <div class="container">
+    <div class="theme-toggle" onclick="toggleTheme()">
+        <i class="fas fa-moon" id="theme-icon"></i>
+    </div>
 
     <div class="header">
-        <h1>CARGO <span>ALMATY</span></h1>
-        <p style="opacity: 0.6; font-size: 14px;">Премиальный сервис перевозок</p>
+        <h1>CARGO <span>PRO</span></h1>
+        <div style="font-size: 12px; color: var(--accent); margin-top: 5px;">📍 Республика Казахстан</div>
     </div>
 
-    <div class="bot-card">
-        <div class="bot-avatar">
-            <i class="fas fa-robot"></i>
-        </div>
-        <div class="bot-content">
-            <h4>Ассистент Данияр</h4>
-            <div class="bot-bubble" id="bot-text">Привет! Я помогу всё оформить. Выберите тип поездки ниже, и я подготовлю данные для WhatsApp.</div>
-            <div class="bot-hints">
-                <div class="hint" onclick="botSpeak('цена')">Сколько стоит?</div>
-                <div class="hint" onclick="botSpeak('время')">Как быстро приедете?</div>
-                <div class="hint" onclick="botSpeak('габариты')">Что влезет?</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="action-card">
-        <div style="font-size: 13px; font-weight: 800; opacity: 0.5; text-transform: uppercase;">Выбор режима:</div>
+    <div class="info-section">
+        <div class="section-title">⚡ Выберите режим</div>
         <div class="btn-group">
             <button class="mode-btn active" onclick="setMode('СРОЧНО', this)">🚀 Срочно</button>
-            <button class="mode-btn" onclick="setMode('ПЛАНОВО', this)">📅 На время</button>
+            <button class="mode-btn" onclick="setMode('ПЛАНОВО', this)">📅 Ко времени</button>
         </div>
     </div>
 
     <div class="contacts">
-        <a id="wa-link" href="https://wa.me/787023036363" class="social-btn wa" target="_blank">
-            <i class="fab fa-whatsapp fa-lg"></i> Заказать в WhatsApp
+        <div class="no-calls">📵 ЗВОНКИ НЕ ПРИНИМАЮТСЯ</div>
+        
+        <a id="wa-link" href="#" class="social-btn wa" target="_blank">
+            <i class="fab fa-whatsapp fa-lg"></i> Написать в WhatsApp
         </a>
 
-        <a href="https://t.me/+87066363705" class="social-btn tg" target="_blank">
-            <i class="fab fa-telegram-plane fa-lg"></i> Написать в Telegram
-        </a>
-
-        <a href="https://www.instagram.com/gruzoperevozka__almaty?igsh=MXhwZzhleXNpYnQzaQ%3D%3D&utm_source=qr" class="social-btn inst" target="_blank">
-            <i class="fab fa-instagram fa-lg"></i> Наш Instagram
-        </a>
-
-        <a href="tel:87023036363" class="social-btn call">
-            <i class="fas fa-phone-alt"></i> Позвонить напрямую
-        </a>
+        <button onclick="shareSite()" class="social-btn share">
+            <i class="fas fa-share-alt"></i> Поделиться контактом
+        </button>
     </div>
 
-    <p style="text-align: center; opacity: 0.2; font-size: 10px; margin-top: 20px; letter-spacing: 2px;">POWERED BY AI • ALMATY 2025</p>
+    <div class="info-section">
+        <div class="section-title">💰 Тарифы</div>
+        <table class="price-table">
+            <tr><td>По городу</td><td>от 5 000 ₸</td></tr>
+            <tr><td>Межгород</td><td>от 150 ₸/км</td></tr>
+            <tr><td>Грузчик</td><td>от 2 500 ₸/час</td></tr>
+        </table>
+    </div>
 
+    <div class="info-section" style="border-left: 4px solid var(--danger);">
+        <div class="section-title" style="color: var(--danger);">❌ Мы не перевозим</div>
+        <div style="font-size: 12px; opacity: 0.8;">
+            Мусор, пианино, сейфы, оружие, наличные средства, грузы длиннее кузова.
+        </div>
+    </div>
+
+    <p class="footer-text">CARGO PRO KAZAKHSTAN • 2025</p>
 </div>
 
 <script>
 const myNumber = "787023036363";
 
+// 1. Функция "Поделиться"
+async function shareSite() {
+    if (navigator.share) {
+        try {
+            await navigator.share({
+                title: 'CARGO PRO — Перевозки по РК',
+                text: 'Надежные грузоперевозки по Казахстану. Только WhatsApp.',
+                url: window.location.href
+            });
+        } catch (err) { console.log('Отмена шеринга'); }
+    } else {
+        alert("Скопируйте ссылку: " + window.location.href);
+    }
+}
+
+// 2. Умная тема (День/Ночь)
+function initTheme() {
+    const hour = new Date().getHours();
+    const isNight = hour < 7 || hour > 19;
+    if (!isNight) toggleTheme(); // Если день — включаем светлую
+}
+
+function toggleTheme() {
+    const body = document.body;
+    const icon = document.getElementById('theme-icon');
+    if (body.getAttribute('data-theme') === 'light') {
+        body.removeAttribute('data-theme');
+        icon.className = 'fas fa-moon';
+    } else {
+        body.setAttribute('data-theme', 'light');
+        icon.className = 'fas fa-sun';
+    }
+}
+
+// 3. Настройка режима WhatsApp
 function setMode(mode, btn) {
     document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    
-    const botText = document.getElementById('bot-text');
-    if(mode === 'СРОЧНО') {
-        botText.innerText = "Понял! Ставлю приоритет 'Срочно'. Подача машины в течение 20-30 минут. Жмите на WhatsApp!";
-    } else {
-        botText.innerText = "Отлично. Для плановой перевозки укажите дату и время в сообщении. Я готов!";
-    }
+    updateLink(mode);
+}
 
-    const message = `Здравствуйте! Мне нужно перевезти груз (${mode}).\nОткуда:\nКуда:\nЧто везем:`;
+function updateLink(mode) {
+    const message = `Здравствуйте! Нужна перевозка (${mode}).\n📍 Откуда:\n🏁 Куда:\n📦 Что везем:`;
     document.getElementById('wa-link').href = `https://wa.me/${myNumber}?text=${encodeURIComponent(message)}`;
 }
 
-function botSpeak(topic) {
-    const botText = document.getElementById('bot-text');
-    botText.style.opacity = 0;
-    
-    setTimeout(() => {
-        botText.style.opacity = 1;
-        if(topic === 'цена') {
-            botText.innerText = "Цена зависит от расстояния и объема. Напишите в WhatsApp точки А и Б — я сразу рассчитаю стоимость!";
-        } else if(topic === 'время') {
-            botText.innerText = "Обычно подаю машину за 20-40 минут в черте города. Работаю без выходных!";
-        } else if(topic === 'габариты') {
-            botText.innerText = "Перевожу мебель, технику, стройматериалы весом до 1.2 тонны. Главное, чтобы влезло в кузов!";
-        }
-    }, 300);
-}
+// Запуск
+initTheme();
+updateLink('СРОЧНО');
 </script>
 
 </body>
