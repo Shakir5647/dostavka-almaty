@@ -1,245 +1,194 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>🚚 CARGO PRO — Перевозки по Казахстану</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="Профессиональные грузоперевозки по Республике Казахстан. Быстрая подача, расчет стоимости в WhatsApp.">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Грузоперевозки Алматы</title>
+<meta name="description" content="Грузоперевозки по Алматы. Газель, грузчики, переезды. Онлайн расчет цены. WhatsApp">
+<meta name="keywords" content="грузоперевозки алматы, газель алматы, грузчики алматы">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
-    <style>
-        :root {
-            --bg: #050505;
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --accent: #00ffa3;
-            --text: #ffffff;
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --danger: #ff4b4b;
-            --shadow: rgba(0, 255, 163, 0.2);
-            --tg-color: #0088cc;
-            --inst-color: #e4405f;
-        }
-
-        [data-theme="light"] {
-            --bg: #f0f2f5;
-            --card-bg: #ffffff;
-            --text: #1a1a1a;
-            --glass-border: rgba(0, 0, 0, 0.05);
-            --accent: #00b372;
-            --shadow: rgba(0, 0, 0, 0.1);
-        }
-
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; transition: background 0.5s, color 0.5s; }
-
-        body {
-            margin: 0;
-            font-family: 'SF Pro Display', system-ui, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            overflow-x: hidden;
-            line-height: 1.5;
-        }
-
-        .glow {
-            position: fixed;
-            width: 300px; height: 300px;
-            background: var(--accent);
-            filter: blur(150px);
-            opacity: 0.1;
-            z-index: -1;
-            top: 10%; left: -10%;
-        }
-
-        .container { max-width: 480px; margin: 0 auto; padding: 20px; position: relative; }
-
-        .header {
-            background: var(--card-bg);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            padding: 30px 20px;
-            border-radius: 35px;
-            text-align: center;
-            margin-bottom: 20px;
-            box-shadow: 0 10px 30px var(--shadow);
-        }
-
-        .header h1 { font-size: 32px; margin: 0; font-weight: 900; letter-spacing: -1px; }
-        .header span { color: var(--accent); }
-
-        .info-section {
-            background: var(--card-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 25px;
-            padding: 20px;
-            margin-bottom: 15px;
-        }
-
-        .section-title {
-            font-size: 13px;
-            font-weight: 800;
-            color: var(--accent);
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .price-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-        .price-table tr { border-bottom: 1px solid var(--glass-border); }
-        .price-table td { padding: 12px 5px; }
-        .price-table td:last-child { text-align: right; font-weight: bold; color: var(--accent); }
-
-        .social-btn {
-            display: flex; align-items: center; justify-content: center; gap: 12px;
-            padding: 18px; border-radius: 22px;
-            text-decoration: none; font-weight: 800; font-size: 16px;
-            margin-bottom: 10px; transition: 0.3s;
-            border: none; cursor: pointer; width: 100%;
-        }
-
-        .wa { background: #25d366; color: #fff; }
-        .tg { background: var(--tg-color); color: #fff; }
-        .inst { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%); color: #fff; }
-        .share { background: var(--text); color: var(--bg); }
-
-        .btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .mode-btn {
-            background: rgba(128,128,128,0.1);
-            border: 1px solid transparent;
-            padding: 12px;
-            border-radius: 15px;
-            color: var(--text);
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .mode-btn.active { background: var(--accent); color: #000; }
-
-        .no-calls {
-            text-align: center; font-size: 12px; color: var(--danger);
-            font-weight: bold; margin-bottom: 15px; text-transform: uppercase;
-        }
-
-        .footer-text { text-align: center; opacity: 0.3; font-size: 10px; margin-top: 30px; }
-
-        .theme-toggle {
-            position: absolute; top: 10px; right: 20px;
-            background: var(--card-bg); border: 1px solid var(--glass-border);
-            color: var(--text); padding: 8px; border-radius: 50%; width: 35px; height: 35px;
-            display: flex; align-items: center; justify-content: center; cursor: pointer;
-            z-index: 10;
-        }
-    </style>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Roboto',sans-serif}
+body{background:#f5f5f5;color:#222;line-height:1.6}
+.container{width:90%;max-width:1100px;margin:auto}
+h1,h2{text-align:center;margin-bottom:20px}
+.section{padding:50px 0;background:#fff;margin-bottom:20px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.05)}
+.btn{display:inline-block;padding:14px 22px;background:#22c55e;color:#fff;text-decoration:none;border-radius:8px;font-weight:500;margin:5px;transition:0.3s}
+.btn:hover{background:#16a34a}
+.whatsapp{background:#25d366}
+.whatsapp:hover{background:#1ebe5c}
+input,select,textarea{width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ccc;font-size:16px;transition:0.3s}
+input:focus,select:focus,textarea:focus{border-color:#22c55e;outline:none;box-shadow:0 0 10px rgba(34,197,94,0.2)}
+table{width:100%;border-collapse:collapse;margin-top:20px}
+th,td{padding:14px;border-bottom:1px solid #ddd;text-align:center;font-weight:500}
+th{background:#22c55e;color:#fff;border-radius:6px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;transition:0.3s}
+.card{background:#f9fafb;border-radius:12px;overflow:hidden;text-align:center;transition:0.3s;box-shadow:0 4px 8px rgba(0,0,0,0.1)}
+.card:hover{transform:translateY(-5px);box-shadow:0 8px 16px rgba(0,0,0,0.15)}
+.card img{width:100%;height:170px;object-fit:cover}
+.card p{padding:12px;font-weight:500}
+footer{background:#0f172a;color:#fff;padding:40px 0;text-align:center}
+footer a{margin:0 10px;text-decoration:none;color:#fff;font-weight:500}
+footer a:hover{color:#22c55e}
+.hero{background:url('https://images.pexels.com/photos/4246120/pexels-photo-4246120.jpeg');background-size:cover;background-position:center;color:#fff;padding:100px 20px;text-align:center;position:relative;border-radius:12px}
+.overlay{background:rgba(0,0,0,0.55);padding:80px 20px;border-radius:15px;display:inline-block}
+.sticky-whatsapp{position:fixed;right:20px;bottom:20px;background:#25d366;color:#fff;padding:18px 22px;border-radius:50px;font-weight:bold;text-decoration:none;font-size:16px;z-index:999;box-shadow:0 4px 10px rgba(0,0,0,0.2);transition:0.3s}
+.sticky-whatsapp:hover{background:#1ebe5c}
+#result{margin-top:15px;color:#16a34a;font-weight:700;font-size:18px;text-align:center;transition:0.3s}
+#highlighted{font-weight:bold;color:#ef4444}
+.tooltip{font-size:14px;color:#555;margin-top:4px}
+.slider-container{display:flex;align-items:center;gap:15px;margin-bottom:15px}
+.slider-container input[type=range]{flex:1}
+.slider-value{min-width:50px;text-align:center;font-weight:500}
+</style>
 </head>
-
 <body>
-<div class="glow" id="glow"></div>
 
-<div class="container">
-    <div class="theme-toggle" onclick="toggleTheme()">
-        <i class="fas fa-moon" id="theme-icon"></i>
-    </div>
-
-    <div class="header">
-        <h1>CARGO <span>PRO</span></h1>
-        <div style="font-size: 12px; color: var(--accent); margin-top: 5px;">📍 Республика Казахстан</div>
-    </div>
-
-    <div class="info-section">
-        <div class="section-title">⚡ Выберите режим перевозки</div>
-        <div class="btn-group">
-            <button class="mode-btn active" onclick="setMode('СРОЧНО', this)">🚀 Срочно</button>
-            <button class="mode-btn" onclick="setMode('ПЛАНОВО', this)">📅 Ко времени</button>
-        </div>
-    </div>
-
-    <div class="contacts">
-        <div class="no-calls">📵 ЗВОНКИ НЕ ПРИНИМАЮТСЯ — ТОЛЬКО ЧАТ</div>
-        
-        <a id="wa-link" href="#" class="social-btn wa" target="_blank">
-            <i class="fab fa-whatsapp fa-lg"></i> Написать в WhatsApp
-        </a>
-
-        <a href="https://t.me/+77066363705" class="social-btn tg" target="_blank">
-            <i class="fab fa-telegram-plane fa-lg"></i> Написать в Telegram
-        </a>
-
-        <a href="https://www.instagram.com/gruzoperevozka__almaty?igsh=MXhwZzhleXNpYnQzaQ%3D%3D&utm_source=qr" class="social-btn inst" target="_blank">
-            <i class="fab fa-instagram fa-lg"></i> Наш Instagram
-        </a>
-
-        <button onclick="shareSite()" class="social-btn share">
-            <i class="fas fa-share-alt"></i> Поделиться контактом
-        </button>
-    </div>
-
-    <div class="info-section">
-        <div class="section-title">💰 Тарифы</div>
-        <table class="price-table">
-            <tr><td>По городу</td><td>от 5 000 ₸</td></tr>
-            <tr><td>Межгород</td><td>от 150 ₸/км</td></tr>
-            <tr><td>Грузчик</td><td>от 2 500 ₸/час</td></tr>
-        </table>
-    </div>
-
-    <div class="info-section" style="border-left: 4px solid var(--danger);">
-        <div class="section-title" style="color: var(--danger);">❌ Мы не перевозим</div>
-        <div style="font-size: 12px; opacity: 0.8;">
-            Мусор (бытовой/строй), пианино, сейфы, оружие, наличные, грузы длиннее кузова.
-        </div>
-    </div>
-
-    <p class="footer-text">CARGO PRO KAZAKHSTAN • 2025</p>
+<!-- HERO -->
+<section class="hero">
+<div class="overlay">
+<h1>🚚 Грузоперевозки по Алматы</h1>
+<p>Газель • Грузчики • Переезды • Доставка</p>
+<a class="btn whatsapp" href="#calc">Рассчитать стоимость</a>
+<a class="btn" href="tel:+77066363705">Позвонить</a>
 </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="section" id="calc">
+<div class="container">
+<h2>Онлайн-калькулятор</h2>
+
+<label>Расстояние (км)</label>
+<div class="slider-container">
+<input type="range" id="km" min="1" max="100" value="25">
+<div class="slider-value" id="kmValue">25</div>
+</div>
+<div class="tooltip">Выберите расстояние поездки</div>
+
+<label>Грузчики</label>
+<div class="slider-container">
+<input type="range" id="loaders" min="0" max="5" value="1">
+<div class="slider-value" id="loaderValue">1</div>
+</div>
+<div class="tooltip">Каждый грузчик стоит 2500 тг</div>
+
+<label>Комментарий (необязательно)</label>
+<textarea id="comment" placeholder="Например: диван, этаж, лифт"></textarea>
+
+<p id="result">Введите данные для расчета стоимости</p>
+<button class="btn whatsapp" id="sendBtn">Отправить в WhatsApp</button>
+</div>
+</section>
+
+<!-- PRICES -->
+<section class="section">
+<div class="container">
+<h2>Тарифы</h2>
+<p style="text-align:center"><b>Минимальный заказ:</b> 6 000 тг</p>
+<table>
+<tr><th>Расстояние</th><th>Цена</th></tr>
+<tr><td id="km0">0–10 км</td><td id="price0">1 000 тг / км</td></tr>
+<tr><td id="km1">10–20 км</td><td id="price1">800 тг / км</td></tr>
+<tr><td id="km2">20–40 км</td><td id="price2">700 тг / км</td></tr>
+<tr><td id="km3">40+ км</td><td id="price3">600 тг / км</td></tr>
+</table>
+<p style="text-align:center">Чем дальше расстояние — тем дешевле километр</p>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section class="section">
+<div class="container">
+<h2>Наши услуги</h2>
+<div class="cards">
+<div class="card"><img src="https://images.pexels.com/photos/4569340/pexels-photo-4569340.jpeg" alt="Квартирный переезд"><p>Квартирный переезд</p></div>
+<div class="card"><img src="https://images.pexels.com/photos/7464706/pexels-photo-7464706.jpeg" alt="Офисный переезд"><p>Офисный переезд</p></div>
+<div class="card"><img src="https://images.pexels.com/photos/7464472/pexels-photo-7464472.jpeg" alt="Перевозка мебели"><p>Перевозка мебели</p></div>
+<div class="card"><img src="https://images.pexels.com/photos/4391470/pexels-photo-4391470.jpeg" alt="Доставка грузов"><p>Доставка грузов</p></div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<p>📞 +7 706 636 3705</p>
+<a class="btn whatsapp" href="https://wa.me/77066363705">WhatsApp</a>
+<a class="btn" href="https://www.instagram.com/gruzoperevozka__almaty?igsh=MXhwZzhleXNpYnQzaQ%3D%3D&utm_source=qr">Instagram</a>
+<p>© 2025 Грузоперевозки Алматы</p>
+</footer>
+
+<!-- STICKY WHATSAPP -->
+<a class="sticky-whatsapp" href="https://wa.me/77066363705">WhatsApp</a>
 
 <script>
-const myNumberWA = "787023036363";
+// Слайдеры и мгновенный расчет
+const kmSlider = document.getElementById("km");
+const kmValue = document.getElementById("kmValue");
+const loadersSlider = document.getElementById("loaders");
+const loaderValue = document.getElementById("loaderValue");
+const commentInput = document.getElementById("comment");
+const result = document.getElementById("result");
+const sendBtn = document.getElementById("sendBtn");
 
-async function shareSite() {
-    if (navigator.share) {
-        try {
-            await navigator.share({
-                title: 'CARGO PRO — Перевозки по РК',
-                text: 'Профессиональные грузоперевозки по Казахстану.',
-                url: window.location.href
-            });
-        } catch (err) { console.log('Share cancelled'); }
-    } else {
-        alert("Ссылка: " + window.location.href);
-    }
+function getPricePerKm(km){
+if(km <= 10) return 1000;
+else if(km <= 20) return 800;
+else if(km <= 40) return 700;
+else return 600;
 }
 
-function initTheme() {
-    const hour = new Date().getHours();
-    const isNight = hour < 7 || hour > 19;
-    if (!isNight) toggleTheme();
+function animateValue(start, end, duration){
+let startTimestamp = null;
+const step = (timestamp) => {
+if(!startTimestamp) startTimestamp = timestamp;
+const progress = Math.min((timestamp - startTimestamp)/duration,1);
+const value = Math.floor(progress*(end-start)+start);
+result.innerHTML = `Примерная стоимость: <span id="highlighted">${value} тг</span>`;
+if(progress<1) window.requestAnimationFrame(step);
+};
+window.requestAnimationFrame(step);
 }
 
-function toggleTheme() {
-    const body = document.body;
-    const icon = document.getElementById('theme-icon');
-    if (body.getAttribute('data-theme') === 'light') {
-        body.removeAttribute('data-theme');
-        icon.className = 'fas fa-moon';
-    } else {
-        body.setAttribute('data-theme', 'light');
-        icon.className = 'fas fa-sun';
-    }
+function updateResult(){
+let km = parseInt(kmSlider.value);
+let loaders = parseInt(loadersSlider.value);
+let priceKm = getPricePerKm(km);
+let total = 6000 + km*priceKm + loaders*2500;
+animateValue(0,total,500);
+highlightTable(km);
 }
 
-function setMode(mode, btn) {
-    document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    updateLink(mode);
+function highlightTable(km){
+let ranges=[[0,10],[10,20],[20,40],[40,9999]];
+ranges.forEach((range,i)=>{
+let cell=document.getElementById("price"+i);
+if(km>range[0] && km<=range[1]){cell.style.background="#22c55e";cell.style.color="#fff";}
+else{cell.style.background="";cell.style.color="";}
+});
 }
 
-function updateLink(mode) {
-    const message = `Здравствуйте! Нужна перевозка (${mode}).\n📍 Откуда:\n🏁 Куда:\n📦 Что везем:`;
-    document.getElementById('wa-link').href = `https://wa.me/${myNumberWA}?text=${encodeURIComponent(message)}`;
-}
+// Обновление слайдеров
+[kmSlider, loadersSlider].forEach(el => el.addEventListener("input", ()=>{
+kmValue.innerText = kmSlider.value;
+loaderValue.innerText = loadersSlider.value;
+updateResult();
+}));
 
-initTheme();
-updateLink('СРОЧНО');
+// WhatsApp
+sendBtn.addEventListener("click", ()=>{
+let km=parseInt(kmSlider.value);
+let loaders=parseInt(loadersSlider.value);
+let comment=commentInput.value;
+let priceKm=getPricePerKm(km);
+let total=6000 + km*priceKm + loaders*2500;
+let text=`Здравствуйте! Хочу заказать грузоперевозку.%0AРасстояние: ${km} км%0AГрузчики: ${loaders}%0AСтоимость: ${total} тг%0AКомментарий: ${comment}`;
+window.location.href = "https://wa.me/77066363705?text="+text;
+});
+
+// Инициализация
+updateResult();
 </script>
 
 </body>
