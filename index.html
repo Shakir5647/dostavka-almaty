@@ -14,38 +14,25 @@ body{background:#f5f5f5;color:#222;line-height:1.6}
 .container{width:90%;max-width:1100px;margin:auto}
 h1,h2{text-align:center;margin-bottom:20px}
 .section{padding:50px 0;background:#fff;margin-bottom:20px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.05)}
-.btn{display:inline-block;padding:14px 22px;background:#22c55e;color:#fff;text-decoration:none;border-radius:8px;font-weight:500;margin:5px;transition:0.3s}
-.btn:hover{background:#16a34a}
+.btn{display:inline-block;padding:14px 22px;background:#22c55e;color:#fff;text-decoration:none;border-radius:8px;font-weight:500;margin:5px}
 .whatsapp{background:#25d366}
-.whatsapp:hover{background:#1ebe5c}
-input,select,textarea{width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ccc;font-size:16px;transition:0.3s}
-input:focus,select:focus,textarea:focus{border-color:#22c55e;outline:none;box-shadow:0 0 10px rgba(34,197,94,0.2)}
+input,textarea{width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ccc;font-size:16px}
 table{width:100%;border-collapse:collapse;margin-top:20px}
-th,td{padding:14px;border-bottom:1px solid #ddd;text-align:center;font-weight:500}
-th{background:#22c55e;color:#fff;border-radius:6px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;transition:0.3s}
-.card{background:#f9fafb;border-radius:12px;overflow:hidden;text-align:center;transition:0.3s;box-shadow:0 4px 8px rgba(0,0,0,0.1)}
-.card:hover{transform:translateY(-5px);box-shadow:0 8px 16px rgba(0,0,0,0.15)}
-.card img{width:100%;height:170px;object-fit:cover}
-.card p{padding:12px;font-weight:500}
-footer{background:#0f172a;color:#fff;padding:40px 0;text-align:center}
-footer a{margin:0 10px;text-decoration:none;color:#fff;font-weight:500}
-footer a:hover{color:#22c55e}
-.hero{background:url('https://images.pexels.com/photos/4246120/pexels-photo-4246120.jpeg');background-size:cover;background-position:center;color:#fff;padding:100px 20px;text-align:center;position:relative;border-radius:12px}
-.overlay{background:rgba(0,0,0,0.55);padding:80px 20px;border-radius:15px;display:inline-block}
-.sticky-whatsapp{position:fixed;right:20px;bottom:20px;background:#25d366;color:#fff;padding:18px 22px;border-radius:50px;font-weight:bold;text-decoration:none;font-size:16px;z-index:999;box-shadow:0 4px 10px rgba(0,0,0,0.2);transition:0.3s}
-.sticky-whatsapp:hover{background:#1ebe5c}
-#result{margin-top:15px;color:#16a34a;font-weight:700;font-size:18px;text-align:center;transition:0.3s}
-#highlighted{font-weight:bold;color:#ef4444}
-.tooltip{font-size:14px;color:#555;margin-top:4px}
+th,td{padding:14px;border-bottom:1px solid #ddd;text-align:center}
+th{background:#22c55e;color:#fff}
+.tooltip{font-size:14px;color:#555;margin-top:6px}
 .slider-container{display:flex;align-items:center;gap:15px;margin-bottom:15px}
-.slider-container input[type=range]{flex:1}
-.slider-value{min-width:50px;text-align:center;font-weight:500}
+.slider-value{min-width:40px;text-align:center}
+.hero{background:url('https://images.pexels.com/photos/4246120/pexels-photo-4246120.jpeg') center/cover;color:#fff;padding:100px 20px;text-align:center}
+.overlay{background:rgba(0,0,0,0.55);padding:80px 20px;border-radius:15px}
+#result{font-weight:700;font-size:18px;text-align:center;margin-top:15px}
+#highlighted{color:#ef4444}
+.sticky-whatsapp{position:fixed;right:20px;bottom:20px;background:#25d366;color:#fff;padding:16px 20px;border-radius:50px;text-decoration:none}
 </style>
 </head>
+
 <body>
 
-<!-- HERO -->
 <section class="hero">
 <div class="overlay">
 <h1>🚚 Грузоперевозки по Алматы</h1>
@@ -55,7 +42,6 @@ footer a:hover{color:#22c55e}
 </div>
 </section>
 
-<!-- CALCULATOR -->
 <section class="section" id="calc">
 <div class="container">
 <h2>Онлайн-калькулятор</h2>
@@ -65,130 +51,98 @@ footer a:hover{color:#22c55e}
 <input type="range" id="km" min="1" max="100" value="25">
 <div class="slider-value" id="kmValue">25</div>
 </div>
-<div class="tooltip">Выберите расстояние поездки</div>
 
 <label>Грузчики</label>
 <div class="slider-container">
 <input type="range" id="loaders" min="0" max="5" value="1">
 <div class="slider-value" id="loaderValue">1</div>
 </div>
-<div class="tooltip">Каждый грузчик стоит 2500 тг</div>
 
-<label>Комментарий (необязательно)</label>
+<label>Этаж</label>
+<div class="slider-container">
+<input type="range" id="floor" min="1" max="20" value="1">
+<div class="slider-value" id="floorValue">1</div>
+</div>
+
+<label>
+<input type="checkbox" id="elevator" checked>
+ Есть лифт
+</label>
+
+<p class="tooltip">
+До 5 этажа — 2 000 тг<br>
+С 6 этажа — 3 000 тг<br>
+Без лифта +1 000 тг за грузчика<br>
+До 30 кг на одного грузчика
+</p>
+
+<label>Комментарий</label>
 <textarea id="comment" placeholder="Например: диван, этаж, лифт"></textarea>
 
-<p id="result">Введите данные для расчета стоимости</p>
+<p id="result"></p>
 <button class="btn whatsapp" id="sendBtn">Отправить в WhatsApp</button>
 </div>
 </section>
 
-<!-- PRICES -->
 <section class="section">
 <div class="container">
 <h2>Тарифы</h2>
 <p style="text-align:center"><b>Минимальный заказ:</b> 6 000 тг</p>
 <table>
 <tr><th>Расстояние</th><th>Цена</th></tr>
-<tr><td id="km0">0–10 км</td><td id="price0">1 000 тг / км</td></tr>
-<tr><td id="km1">10–20 км</td><td id="price1">800 тг / км</td></tr>
-<tr><td id="km2">20–40 км</td><td id="price2">700 тг / км</td></tr>
-<tr><td id="km3">40+ км</td><td id="price3">600 тг / км</td></tr>
+<tr><td>0–10 км</td><td>1 200 тг / км</td></tr>
+<tr><td>10–20 км</td><td>1 000 тг / км</td></tr>
+<tr><td>20–40 км</td><td>900 тг / км</td></tr>
+<tr><td>40+ км</td><td>800 тг / км</td></tr>
 </table>
-<p style="text-align:center">Чем дальше расстояние — тем дешевле километр</p>
 </div>
 </section>
 
-<!-- SERVICES -->
-<section class="section">
-<div class="container">
-<h2>Наши услуги</h2>
-<div class="cards">
-<div class="card"><img src="https://images.pexels.com/photos/4569340/pexels-photo-4569340.jpeg" alt="Квартирный переезд"><p>Квартирный переезд</p></div>
-<div class="card"><img src="https://images.pexels.com/photos/7464706/pexels-photo-7464706.jpeg" alt="Офисный переезд"><p>Офисный переезд</p></div>
-<div class="card"><img src="https://images.pexels.com/photos/7464472/pexels-photo-7464472.jpeg" alt="Перевозка мебели"><p>Перевозка мебели</p></div>
-<div class="card"><img src="https://images.pexels.com/photos/4391470/pexels-photo-4391470.jpeg" alt="Доставка грузов"><p>Доставка грузов</p></div>
-</div>
-</div>
-</section>
-
-<!-- FOOTER -->
-<footer>
+<footer class="section" style="text-align:center">
 <p>📞 +7 706 636 3705</p>
 <a class="btn whatsapp" href="https://wa.me/77066363705">WhatsApp</a>
-<a class="btn" href="https://www.instagram.com/gruzoperevozka__almaty?igsh=MXhwZzhleXNpYnQzaQ%3D%3D&utm_source=qr">Instagram</a>
 <p>© 2025 Грузоперевозки Алматы</p>
 </footer>
 
-<!-- STICKY WHATSAPP -->
 <a class="sticky-whatsapp" href="https://wa.me/77066363705">WhatsApp</a>
 
 <script>
-// Слайдеры и мгновенный расчет
-const kmSlider = document.getElementById("km");
-const kmValue = document.getElementById("kmValue");
-const loadersSlider = document.getElementById("loaders");
-const loaderValue = document.getElementById("loaderValue");
-const commentInput = document.getElementById("comment");
-const result = document.getElementById("result");
-const sendBtn = document.getElementById("sendBtn");
+const km=document.getElementById("km");
+const loaders=document.getElementById("loaders");
+const floor=document.getElementById("floor");
+const elevator=document.getElementById("elevator");
+
+const kmValue=document.getElementById("kmValue");
+const loaderValue=document.getElementById("loaderValue");
+const floorValue=document.getElementById("floorValue");
+const result=document.getElementById("result");
 
 function getPricePerKm(km){
-if(km <= 10) return 1000;
-else if(km <= 20) return 800;
-else if(km <= 40) return 700;
-else return 600;
+if(km<=10) return 1200;
+else if(km<=20) return 1000;
+else if(km<=40) return 900;
+else return 800;
 }
 
-function animateValue(start, end, duration){
-let startTimestamp = null;
-const step = (timestamp) => {
-if(!startTimestamp) startTimestamp = timestamp;
-const progress = Math.min((timestamp - startTimestamp)/duration,1);
-const value = Math.floor(progress*(end-start)+start);
-result.innerHTML = `Примерная стоимость: <span id="highlighted">${value} тг</span>`;
-if(progress<1) window.requestAnimationFrame(step);
-};
-window.requestAnimationFrame(step);
+function update(){
+let kmVal=+km.value;
+let loadersVal=+loaders.value;
+let floorVal=+floor.value;
+
+let loaderPrice = floorVal<=5 ? 2000 : 3000;
+if(!elevator.checked) loaderPrice += 1000;
+
+let total = 6000 + kmVal*getPricePerKm(kmVal) + loadersVal*loaderPrice;
+
+kmValue.innerText=kmVal;
+loaderValue.innerText=loadersVal;
+floorValue.innerText=floorVal;
+
+result.innerHTML=`Примерная стоимость: <span id="highlighted">${total} тг</span>`;
 }
 
-function updateResult(){
-let km = parseInt(kmSlider.value);
-let loaders = parseInt(loadersSlider.value);
-let priceKm = getPricePerKm(km);
-let total = 6000 + km*priceKm + loaders*2500;
-animateValue(0,total,500);
-highlightTable(km);
-}
-
-function highlightTable(km){
-let ranges=[[0,10],[10,20],[20,40],[40,9999]];
-ranges.forEach((range,i)=>{
-let cell=document.getElementById("price"+i);
-if(km>range[0] && km<=range[1]){cell.style.background="#22c55e";cell.style.color="#fff";}
-else{cell.style.background="";cell.style.color="";}
-});
-}
-
-// Обновление слайдеров
-[kmSlider, loadersSlider].forEach(el => el.addEventListener("input", ()=>{
-kmValue.innerText = kmSlider.value;
-loaderValue.innerText = loadersSlider.value;
-updateResult();
-}));
-
-// WhatsApp
-sendBtn.addEventListener("click", ()=>{
-let km=parseInt(kmSlider.value);
-let loaders=parseInt(loadersSlider.value);
-let comment=commentInput.value;
-let priceKm=getPricePerKm(km);
-let total=6000 + km*priceKm + loaders*2500;
-let text=`Здравствуйте! Хочу заказать грузоперевозку.%0AРасстояние: ${km} км%0AГрузчики: ${loaders}%0AСтоимость: ${total} тг%0AКомментарий: ${comment}`;
-window.location.href = "https://wa.me/77066363705?text="+text;
-});
-
-// Инициализация
-updateResult();
+[km,loaders,floor,elevator].forEach(el=>el.addEventListener("input",update));
+update();
 </script>
 
 </body>
