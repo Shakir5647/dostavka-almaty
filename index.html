@@ -28,6 +28,10 @@ th{background:#22c55e;color:#fff}
 .overlay{background:rgba(0,0,0,0.55);padding:80px 20px;border-radius:15px}
 #result{font-weight:700;font-size:18px;text-align:center;margin-top:15px}
 #highlighted{color:#ef4444}
+.services{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin-top:30px}
+.service-card{flex:1 1 250px;background:#f9f9f9;padding:15px;border-radius:12px;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.05);transition:.3s}
+.service-card:hover{transform:scale(1.03)}
+.service-card img{width:100%;border-radius:12px;margin-bottom:10px}
 .sticky-whatsapp{position:fixed;right:20px;bottom:20px;background:#25d366;color:#fff;padding:16px 20px;border-radius:50px;text-decoration:none}
 </style>
 </head>
@@ -40,6 +44,26 @@ th{background:#22c55e;color:#fff}
 <p>Газель • Грузчики • Переезды • Доставка</p>
 <a class="btn whatsapp" href="#calc">Рассчитать стоимость</a>
 <a class="btn" href="tel:+77066363705">Позвонить</a>
+</div>
+</section>
+
+<section class="section" id="services">
+<div class="container">
+<h2>Наши услуги</h2>
+<div class="services">
+<div class="service-card">
+<img src="https://images.pexels.com/photos/3807821/pexels-photo-3807821.jpeg" alt="Квартирные переезды">
+<h3>Квартирные переезды</h3>
+</div>
+<div class="service-card">
+<img src="https://images.pexels.com/photos/4386464/pexels-photo-4386464.jpeg" alt="Перевозка грузов">
+<h3>Перевозка грузов</h3>
+</div>
+<div class="service-card">
+<img src="https://images.pexels.com/photos/4498130/pexels-photo-4498130.jpeg" alt="Офисные переезды">
+<h3>Офисные переезды</h3>
+</div>
+</div>
 </div>
 </section>
 
@@ -139,7 +163,7 @@ let loaders=Math.ceil(weightVal/30);
 // Минимальная стоимость грузчика
 let baseLoaderCost = 2500;
 
-// Стоимость этажей
+// Стоимость этажей на каждого грузчика
 let floorCostPerLoader = 0;
 if(!elevator.checked){
 floorCostPerLoader = floorVal<5 ? 2000 : 3000;
