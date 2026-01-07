@@ -8,7 +8,6 @@
 <meta name="description" content="Грузоперевозки по Алматы. Газель, грузчики, переезды. Онлайн расчет цены. WhatsApp">
 <meta name="keywords" content="грузоперевозки алматы, газель алматы, грузчики алматы">
 
-<!-- PageSpeed оптимизация -->
 <meta name="theme-color" content="#22c55e">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,24 +30,15 @@ text-decoration:none;
 border-radius:8px;
 font-weight:500;
 margin:5px;
-transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
-will-change:transform;
+transition:transform .2s ease, box-shadow .2s ease;
 }
-.btn:hover{
-transform:translateY(-2px);
-box-shadow:0 8px 20px rgba(0,0,0,.15)
-}
-.btn:active{
-transform:scale(.96)
-}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.15)}
+.btn:active{transform:scale(.96)}
 
 .whatsapp{background:#25d366}
 
 input,textarea{width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ccc;font-size:16px}
-table{width:100%;border-collapse:collapse;margin-top:20px}
-th,td{padding:14px;border-bottom:1px solid #ddd;text-align:center}
-th{background:#22c55e;color:#fff}
-.tooltip{font-size:14px;color:#555;margin-top:6px}
+
 .slider-container{display:flex;align-items:center;gap:15px;margin-bottom:15px}
 .slider-value{min-width:40px;text-align:center}
 
@@ -58,44 +48,27 @@ th{background:#22c55e;color:#fff}
 #result{font-weight:700;font-size:18px;text-align:center;margin-top:15px}
 #highlighted{color:#ef4444}
 
-.sticky-whatsapp{
-position:fixed;
-right:20px;
-bottom:20px;
-background:#25d366;
-color:#fff;
-padding:16px 20px;
-border-radius:50px;
-text-decoration:none;
-transition:transform .25s ease, box-shadow .25s ease;
-}
-.sticky-whatsapp:hover{
-transform:translateY(-4px);
-box-shadow:0 10px 25px rgba(0,0,0,.2)
-}
-
 .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px}
 .service-box{
 border-radius:15px;
 overflow:hidden;
 box-shadow:0 6px 18px rgba(0,0,0,0.08);
 background:#fff;
-transition:transform .35s ease, box-shadow .35s ease
+transition:.35s;
 }
-.service-box:hover{
-transform:translateY(-8px);
-box-shadow:0 14px 30px rgba(0,0,0,0.15)
-}
-.service-box img{
-width:100%;
-height:180px;
-object-fit:cover;
-transition:transform .35s ease
-}
+.service-box:hover{transform:translateY(-8px);box-shadow:0 14px 30px rgba(0,0,0,0.15)}
+.service-box img{width:100%;height:180px;object-fit:cover;transition:.35s}
 .service-box:hover img{transform:scale(1.06)}
 .service-box div{padding:18px;text-align:center;font-weight:500}
 
 .top-info{background:#22c55e;color:#fff;padding:14px;text-align:center;font-weight:500}
+
+.sticky-whatsapp{
+position:fixed;right:20px;bottom:20px;
+background:#25d366;color:#fff;
+padding:16px 20px;border-radius:50px;
+text-decoration:none;
+}
 </style>
 </head>
 
@@ -117,7 +90,6 @@ transition:transform .35s ease
 <section class="section">
 <div class="container">
 <h2>Наши услуги</h2>
-
 <div class="services-grid">
 
 <div class="service-box">
@@ -154,7 +126,70 @@ transition:transform .35s ease
 </div>
 </section>
 
-<!-- остальной код сайта БЕЗ ИЗМЕНЕНИЙ -->
+<section class="section" id="calc">
+<div class="container">
+<h2>Онлайн-калькулятор</h2>
+
+<label>Расстояние (км)</label>
+<div class="slider-container">
+<input type="range" id="km" min="1" max="100" value="25">
+<div class="slider-value" id="kmValue">25</div>
+</div>
+
+<label>Грузчики</label>
+<div class="slider-container">
+<input type="range" id="loaders" min="0" max="5" value="1">
+<div class="slider-value" id="loaderValue">1</div>
+</div>
+
+<label>Этаж</label>
+<div class="slider-container">
+<input type="range" id="floor" min="1" max="20" value="1">
+<div class="slider-value" id="floorValue">1</div>
+</div>
+
+<label><input type="checkbox" id="elevator" checked> Есть лифт</label>
+
+<textarea id="comment" placeholder="Комментарий к заказу"></textarea>
+
+<p id="result"></p>
+<button class="btn whatsapp" id="sendBtn">Отправить в WhatsApp</button>
+</div>
+</section>
+
+<footer class="section" style="text-align:center">
+<p>📞 +7 706 636 3705</p>
+<a class="btn whatsapp" href="https://wa.me/77066363705">WhatsApp</a>
+<p>© 2025 Грузоперевозки Алматы</p>
+</footer>
+
+<a class="sticky-whatsapp" href="https://wa.me/77066363705">WhatsApp</a>
+
+<script>
+const km=document.getElementById("km");
+const loaders=document.getElementById("loaders");
+const floor=document.getElementById("floor");
+const elevator=document.getElementById("elevator");
+const result=document.getElementById("result");
+
+function priceKm(k){return k<=10?1200:k<=20?1000:k<=40?900:800}
+
+function calc(){
+let total=6000+km.value*priceKm(km.value)+(floor.value<=5?2000:3000)*loaders.value+(elevator.checked?0:1000*loaders.value);
+result.innerHTML=`Примерная стоимость: <span id="highlighted">${total} тг</span>`;
+document.getElementById("kmValue").innerText=km.value;
+document.getElementById("loaderValue").innerText=loaders.value;
+document.getElementById("floorValue").innerText=floor.value;
+return total;
+}
+[km,loaders,floor,elevator].forEach(e=>e.oninput=calc);
+calc();
+
+sendBtn.onclick=()=>{
+const t=calc();
+window.open(`https://wa.me/77066363705?text=Стоимость:%20${t}%20тг`,"_blank");
+}
+</script>
 
 </body>
 </html>
