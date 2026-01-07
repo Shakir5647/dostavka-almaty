@@ -4,43 +4,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Грузоперевозки Алматы</title>
-
 <meta name="description" content="Грузоперевозки по Алматы. Газель, грузчики, переезды. Онлайн расчет цены. WhatsApp">
 <meta name="keywords" content="грузоперевозки алматы, газель алматы, грузчики алматы">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Roboto',sans-serif}
-body{background:#f5f5f5;color:#222}
+body{background:#f5f5f5;color:#222;line-height:1.6}
 .container{width:90%;max-width:1100px;margin:auto}
-.section{padding:50px 0;background:#fff;margin:20px 0;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.05)}
 h1,h2{text-align:center;margin-bottom:20px}
-
-.btn{padding:14px 22px;background:#22c55e;color:#fff;text-decoration:none;border-radius:8px;font-weight:500;display:inline-block;transition:.2s}
-.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.15)}
-.btn:active{transform:scale(.96)}
+.section{padding:50px 0;background:#fff;margin-bottom:20px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.05)}
+.btn{display:inline-block;padding:14px 22px;background:#22c55e;color:#fff;text-decoration:none;border-radius:8px;font-weight:500;margin:5px;transition:.2s}
+.btn:hover{transform:scale(1.05)}
 .whatsapp{background:#25d366}
-
-.hero{background:url('https://images.pexels.com/photos/4246120/pexels-photo-4246120.jpeg') center/cover;padding:100px 20px;color:#fff;text-align:center}
-.overlay{background:rgba(0,0,0,.55);padding:80px 20px;border-radius:15px}
-
-.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px}
-.service-box{border-radius:15px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.08);transition:.3s}
-.service-box:hover{transform:translateY(-8px)}
-.service-box img{width:100%;height:180px;object-fit:cover}
-.service-box div{text-align:center;padding:15px;font-weight:500}
-
-input,textarea{width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ccc}
-.slider-container{display:flex;align-items:center;gap:15px}
-.slider-value{width:40px;text-align:center}
-
+input,textarea{width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ccc;font-size:16px}
 table{width:100%;border-collapse:collapse;margin-top:20px}
 th,td{padding:14px;border-bottom:1px solid #ddd;text-align:center}
 th{background:#22c55e;color:#fff}
-
+.tooltip{font-size:14px;color:#555;margin-top:6px}
+.slider-container{display:flex;align-items:center;gap:15px;margin-bottom:15px}
+.slider-value{min-width:50px;text-align:center;font-weight:500}
+.hero{background:url('https://images.pexels.com/photos/4246120/pexels-photo-4246120.jpeg') center/cover;color:#fff;padding:100px 20px;text-align:center}
+.overlay{background:rgba(0,0,0,0.55);padding:80px 20px;border-radius:15px}
+#result{font-weight:700;font-size:18px;text-align:center;margin-top:15px}
+#highlighted{color:#ef4444}
 .sticky-whatsapp{position:fixed;right:20px;bottom:20px;background:#25d366;color:#fff;padding:16px 20px;border-radius:50px;text-decoration:none}
 </style>
 </head>
@@ -50,38 +37,9 @@ th{background:#22c55e;color:#fff}
 <section class="hero">
 <div class="overlay">
 <h1>🚚 Грузоперевозки по Алматы</h1>
-<p>Газель • Грузчики • Переезды</p>
-<a href="#calc" class="btn whatsapp">Рассчитать стоимость</a>
-<a href="tel:+77066363705" class="btn">Позвонить</a>
-</div>
-</section>
-
-<section class="section">
-<div class="container">
-<h2>Наши услуги</h2>
-<div class="services-grid">
-
-<div class="service-box">
-<img src="https://images.pexels.com/photos/7464725/pexels-photo-7464725.jpeg">
-<div>🏠 Квартирные переезды</div>
-</div>
-
-<div class="service-box">
-<img src="https://images.pexels.com/photos/7464737/pexels-photo-7464737.jpeg">
-<div>🏢 Офисные переезды</div>
-</div>
-
-<div class="service-box">
-<img src="https://images.pexels.com/photos/4246259/pexels-photo-4246259.jpeg">
-<div>📦 Перевозка мебели и техники</div>
-</div>
-
-<div class="service-box">
-<img src="https://images.pexels.com/photos/4246109/pexels-photo-4246109.jpeg">
-<div>🚛 Перевозка грузов</div>
-</div>
-
-</div>
+<p>Газель • Грузчики • Переезды • Доставка</p>
+<a class="btn whatsapp" href="#calc">Рассчитать стоимость</a>
+<a class="btn" href="tel:+77066363705">Позвонить</a>
 </div>
 </section>
 
@@ -91,14 +49,14 @@ th{background:#22c55e;color:#fff}
 
 <label>Расстояние (км)</label>
 <div class="slider-container">
-<input type="range" id="km" min="1" max="100" value="10">
-<div class="slider-value" id="kmValue">10</div>
+<input type="range" id="km" min="1" max="100" value="25">
+<div class="slider-value" id="kmValue">25</div>
 </div>
 
-<label>Грузчики</label>
+<label>Вес груза (кг)</label>
 <div class="slider-container">
-<input type="range" id="loaders" min="0" max="5" value="1">
-<div class="slider-value" id="loaderValue">1</div>
+<input type="range" id="weight" min="10" max="500" step="10" value="60">
+<div class="slider-value" id="weightValue">60</div>
 </div>
 
 <label>Этаж</label>
@@ -107,16 +65,30 @@ th{background:#22c55e;color:#fff}
 <div class="slider-value" id="floorValue">1</div>
 </div>
 
-<label><input type="checkbox" id="elevator" checked> Есть лифт</label>
+<label>
+<input type="checkbox" id="elevator" checked>
+ Есть лифт
+</label>
+
+<label>Комментарий</label>
+<textarea id="comment" placeholder="Например: диван, этаж, лифт"></textarea>
+
+<p class="tooltip">
+30 кг = 1 грузчик<br>
+Без лифта:<br>
+1–4 этаж — 2 000 тг / этаж / грузчик<br>
+5 этаж и выше — 3 000 тг / этаж / грузчик
+</p>
 
 <p id="result"></p>
+<button class="btn whatsapp" id="sendBtn">Отправить расчёт в WhatsApp</button>
 </div>
 </section>
 
 <section class="section">
 <div class="container">
 <h2>Тарифы</h2>
-<p><b>Минимальный заказ:</b> 6 000 тг</p>
+<p style="text-align:center"><b>Минимальный заказ:</b> 6 000 тг</p>
 <table>
 <tr><th>Расстояние</th><th>Цена</th></tr>
 <tr><td>0–10 км</td><td>1 200 тг / км</td></tr>
@@ -130,27 +102,78 @@ th{background:#22c55e;color:#fff}
 <footer class="section" style="text-align:center">
 <p>📞 +7 706 636 3705</p>
 <a class="btn whatsapp" href="https://wa.me/77066363705">WhatsApp</a>
+<p>©️ 2025 Грузоперевозки Алматы</p>
 </footer>
 
 <a class="sticky-whatsapp" href="https://wa.me/77066363705">WhatsApp</a>
 
 <script>
 const km=document.getElementById("km");
-const loaders=document.getElementById("loaders");
+const weight=document.getElementById("weight");
 const floor=document.getElementById("floor");
 const elevator=document.getElementById("elevator");
-const result=document.getElementById("result");
+const comment=document.getElementById("comment");
 
-function priceKm(k){return k<=10?1200:k<=20?1000:k<=40?900:800}
-function calc(){
-let total=6000+km.value*priceKm(km.value)+(floor.value<=5?2000:3000)*loaders.value+(elevator.checked?0:1000*loaders.value);
-result.innerHTML="Примерная стоимость: <b>"+total+" тг</b>";
-kmValue.innerText=km.value;
-loaderValue.innerText=loaders.value;
-floorValue.innerText=floor.value;
+const kmValue=document.getElementById("kmValue");
+const weightValue=document.getElementById("weightValue");
+const floorValue=document.getElementById("floorValue");
+const result=document.getElementById("result");
+const sendBtn=document.getElementById("sendBtn");
+
+function getPricePerKm(km){
+if(km<=10) return 1200;
+else if(km<=20) return 1000;
+else if(km<=40) return 900;
+else return 800;
 }
-[km,loaders,floor,elevator].forEach(e=>e.oninput=calc);
-calc();
+
+function update(){
+let kmVal=+km.value;
+let weightVal=+weight.value;
+let floorVal=+floor.value;
+
+let loaders=Math.ceil(weightVal/30);
+let floorCost=0;
+let loadCost=0;
+let unloadCost=0;
+
+if(!elevator.checked){
+let pricePerFloor = floorVal < 5 ? 2000 : 3000;
+floorCost = floorVal * pricePerFloor * loaders;
+}
+
+// Разделяем на погрузку и выгрузку
+loadCost = Math.ceil(loaders/2)*floorCost;
+unloadCost = Math.floor(loaders/2)*floorCost;
+
+let total = 6000 + kmVal*getPricePerKm(kmVal) + floorCost;
+
+kmValue.innerText=kmVal;
+weightValue.innerText=weightVal;
+floorValue.innerText=floorVal;
+
+result.innerHTML=
+`Грузчиков: <b>${loaders}</b><br>
+Погрузка: <b>${loadCost} тг</b><br>
+Выгрузка: <b>${unloadCost} тг</b><br>
+Примерная стоимость: <span id="highlighted">${total} тг</span>`;
+}
+
+[km,weight,floor,elevator].forEach(el=>el.addEventListener("input",update));
+update();
+
+// Отправка в WhatsApp
+sendBtn.onclick = ()=>{
+let text=`Расчёт перевозки:
+Расстояние: ${km.value} км
+Вес груза: ${weight.value} кг
+Этаж: ${floor.value}
+Грузчиков: ${Math.ceil(weight.value/30)}
+Погрузка: ${Math.ceil(Math.ceil(weight.value/30)/2)*(floor.value<5?2000:3000)*Math.ceil(weight.value/30)} тг
+Выгрузка: ${Math.floor(Math.ceil(weight.value/30)/2)*(floor.value<5?2000:3000)*Math.ceil(weight.value/30)} тг
+Комментарий: ${comment.value}`;
+window.open(`https://wa.me/77066363705?text=${encodeURIComponent(text)}`,'_blank');
+};
 </script>
 
 </body>
