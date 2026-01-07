@@ -47,20 +47,21 @@ th{background:#22c55e;color:#fff}
 </div>
 </section>
 
+<!-- Блок Наши услуги -->
 <section class="section" id="services">
 <div class="container">
 <h2>Наши услуги</h2>
 <div class="services">
 <div class="service-card">
-<img src="https://images.pexels.com/photos/3807821/pexels-photo-3807821.jpeg" alt="Квартирные переезды">
+<img src="https://example.com/photo1.jpg" alt="Квартирные переезды">
 <h3>Квартирные переезды</h3>
 </div>
 <div class="service-card">
-<img src="https://images.pexels.com/photos/4386464/pexels-photo-4386464.jpeg" alt="Перевозка грузов">
+<img src="https://example.com/photo2.jpg" alt="Перевозка грузов">
 <h3>Перевозка грузов</h3>
 </div>
 <div class="service-card">
-<img src="https://images.pexels.com/photos/4498130/pexels-photo-4498130.jpeg" alt="Офисные переезды">
+<img src="https://example.com/photo3.jpg" alt="Офисные переезды">
 <h3>Офисные переезды</h3>
 </div>
 </div>
@@ -146,52 +147,52 @@ const result=document.getElementById("result");
 const sendBtn=document.getElementById("sendBtn");
 
 function getPricePerKm(km){
-if(km<=10) return 1200;
-else if(km<=20) return 1000;
-else if(km<=40) return 900;
-else return 800;
+  if(km<=10) return 1200;
+  else if(km<=20) return 1000;
+  else if(km<=40) return 900;
+  else return 800;
 }
 
 function update(){
-let kmVal=+km.value;
-let weightVal=+weight.value;
-let floorVal=+floor.value;
+  let kmVal=+km.value;
+  let weightVal=+weight.value;
+  let floorVal=+floor.value;
 
-// Считаем количество грузчиков
-let loaders=Math.ceil(weightVal/30);
+  // Считаем количество грузчиков
+  let loaders=Math.ceil(weightVal/30);
 
-// Минимальная стоимость грузчика
-let baseLoaderCost = 2500;
+  // Минимальная стоимость грузчика
+  let baseLoaderCost = 2500;
 
-// Стоимость этажей на каждого грузчика
-let floorCostPerLoader = 0;
-if(!elevator.checked){
-floorCostPerLoader = floorVal<5 ? 2000 : 3000;
-}
+  // Стоимость этажей на каждого грузчика
+  let floorCostPerLoader = 0;
+  if(!elevator.checked){
+    floorCostPerLoader = floorVal<5 ? 2000 : 3000;
+  }
 
-// Общая стоимость
-let total = 6000 + kmVal*getPricePerKm(kmVal) + loaders*baseLoaderCost + loaders*floorCostPerLoader*floorVal;
+  // Общая стоимость
+  let total = 6000 + kmVal*getPricePerKm(kmVal) + loaders*baseLoaderCost + loaders*floorCostPerLoader*floorVal;
 
-kmValue.innerText=kmVal;
-weightValue.innerText=weightVal;
-floorValue.innerText=floorVal;
+  kmValue.innerText=kmVal;
+  weightValue.innerText=weightVal;
+  floorValue.innerText=floorVal;
 
-result.innerHTML=`Грузчиков: <b>${loaders}</b><br>Примерная стоимость: <span id="highlighted">${total} тг</span>`;
+  result.innerHTML=`Грузчиков: <b>${loaders}</b><br>Примерная стоимость: <span id="highlighted">${total} тг</span>`;
 }
 
 [km,weight,floor,elevator].forEach(el=>el.addEventListener("input",update));
 update();
 
 sendBtn.onclick = ()=>{
-let kmVal=+km.value;
-let weightVal=+weight.value;
-let floorVal=+floor.value;
-let loaders=Math.ceil(weightVal/30);
-let baseLoaderCost = 2500;
-let floorCostPerLoader = (!elevator.checked) ? (floorVal<5?2000:3000) : 0;
-let total = 6000 + kmVal*getPricePerKm(kmVal) + loaders*baseLoaderCost + loaders*floorCostPerLoader*floorVal;
+  let kmVal=+km.value;
+  let weightVal=+weight.value;
+  let floorVal=+floor.value;
+  let loaders=Math.ceil(weightVal/30);
+  let baseLoaderCost = 2500;
+  let floorCostPerLoader = (!elevator.checked) ? (floorVal<5?2000:3000) : 0;
+  let total = 6000 + kmVal*getPricePerKm(kmVal) + loaders*baseLoaderCost + loaders*floorCostPerLoader*floorVal;
 
-let text=`Расчёт перевозки:
+  let text=`Расчёт перевозки:
 Расстояние: ${kmVal} км
 Вес груза: ${weightVal} кг
 Этаж: ${floorVal}
@@ -199,7 +200,7 @@ let text=`Расчёт перевозки:
 Итоговая стоимость: ${total} тг
 Комментарий: ${comment.value}`;
 
-window.open(`https://wa.me/77066363705?text=${encodeURIComponent(text)}`,'_blank');
+  window.open(`https://wa.me/77066363705?text=${encodeURIComponent(text)}`,'_blank');
 };
 </script>
 
