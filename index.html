@@ -133,15 +133,19 @@ let kmVal=+km.value;
 let weightVal=+weight.value;
 let floorVal=+floor.value;
 
+// Считаем количество грузчиков
 let loaders=Math.ceil(weightVal/30);
 
-// Минимальная стоимость грузчика 2500
+// Минимальная стоимость грузчика
 let baseLoaderCost = 2500;
+
+// Стоимость этажей
 let floorCostPerLoader = 0;
 if(!elevator.checked){
 floorCostPerLoader = floorVal<5 ? 2000 : 3000;
 }
 
+// Общая стоимость
 let total = 6000 + kmVal*getPricePerKm(kmVal) + loaders*baseLoaderCost + loaders*floorCostPerLoader*floorVal;
 
 kmValue.innerText=kmVal;
