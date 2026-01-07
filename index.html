@@ -4,10 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Грузоперевозки Алматы</title>
-<meta name="description" content="Грузоперевозки по Алматы. Газель, грузчики, переезды. Онлайн расчет цены. WhatsApp">
-<meta name="keywords" content="грузоперевозки алматы, газель алматы, грузчики алматы">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Roboto',sans-serif}
 body{background:#f5f5f5;color:#222;line-height:1.6}
@@ -35,7 +32,6 @@ th{background:#22c55e;color:#fff}
 .sticky-whatsapp{position:fixed;right:20px;bottom:20px;background:#25d366;color:#fff;padding:16px 20px;border-radius:50px;text-decoration:none}
 </style>
 </head>
-
 <body>
 
 <section class="hero">
@@ -47,35 +43,36 @@ th{background:#22c55e;color:#fff}
 </div>
 </section>
 
-<!-- Блок Наши услуги -->
+<!-- Наши услуги -->
 <section class="section" id="services">
 <div class="container">
 <h2>Наши услуги</h2>
 <div class="services">
-<div class="service-card">
-<img src="https://pixabay.com/get/gd3e38fb54dbfa3841a7c23e9d294e8b3d94639d3b1b93d5c68cf1a8d97a1d43bfefa7bb4d384aeddfeae3e1981a86bc1_1280.jpg" alt="Квартирный переезд">
-<h3>Квартирный переезд</h3>
-</div>
-<div class="service-card">
-<img src="https://pixabay.com/get/gf6b3bb6d89130bc3d1a99c7db7f8bf6ec4cc27bd801bdf253774faec055a3a85bb9d209d46313c3941b729529f49a15a_1280.jpg" alt="Офисный переезд">
-<h3>Офисный переезд</h3>
-</div>
-<div class="service-card">
-<img src="https://pixabay.com/get/gd9b3de0c87a0ea23d87ff1f9b52df6a25135d87b0e6ff82d93b5b5c1ab52b07b5a726a9a7b70cc5bac8108fdb61c18e1_1280.jpg" alt="Перевозка мебели">
-<h3>Перевозка мебели</h3>
-</div>
-<div class="service-card">
-<img src="https://pixabay.com/get/gb61c06b56b00ca46f78a0958127938488ea62fc512af828afc91c5c78013fb1c8b9c0add99cd3a2c285f9d449e64f467_1280.jpg" alt="Погрузочные работы">
-<h3>Погрузочные работы</h3>
-</div>
-<div class="service-card">
-<img src="https://pixabay.com/get/gcc7e3d829edb14989f4e6ba5c856067aa3e707b948741ea4d39eeef8f75cd5f55db44b3f3ab73b37feb5db159afd1b22c_1280.jpg" alt="Разгрузка и упаковка">
-<h3>Разгрузка и упаковка</h3>
-</div>
+  <div class="service-card">
+    <img src="https://images.pexels.com/photos/5380462/pexels-photo-5380462.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Квартирный переезд">
+    <h3>Квартирный переезд</h3>
+  </div>
+  <div class="service-card">
+    <img src="https://images.pexels.com/photos/6839236/pexels-photo-6839236.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Офисный переезд">
+    <h3>Офисный переезд</h3>
+  </div>
+  <div class="service-card">
+    <img src="https://images.pexels.com/photos/4475926/pexels-photo-4475926.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Перевозка мебели">
+    <h3>Перевозка мебели</h3>
+  </div>
+  <div class="service-card">
+    <img src="https://images.pexels.com/photos/5926381/pexels-photo-5926381.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Погрузка и разгрузка">
+    <h3>Погрузка и разгрузка</h3>
+  </div>
+  <div class="service-card">
+    <img src="https://images.pexels.com/photos/6066130/pexels-photo-6066130.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Упаковка вещей">
+    <h3>Упаковка вещей</h3>
+  </div>
 </div>
 </div>
 </section>
 
+<!-- Калькулятор -->
 <section class="section" id="calc">
 <div class="container">
 <h2>Онлайн‑калькулятор</h2>
@@ -119,10 +116,11 @@ th{background:#22c55e;color:#fff}
 </div>
 </section>
 
+<!-- Таблица тарифов -->
 <section class="section">
 <div class="container">
 <h2>Тарифы</h2>
-<p style="text-align:center"><b>Минимальный заказ:</b> 6 000 тг</p>
+<p style="text-align:center"><b>Минимальный заказ:</b> 6 000 тг</p>
 <table>
 <tr><th>Расстояние</th><th>Цена</th></tr>
 <tr><td>0–10 км</td><td>1 200 тг / км</td></tr>
@@ -166,13 +164,8 @@ function update(){
   let weightVal=+weight.value;
   let floorVal=+floor.value;
 
-  // Количество грузчиков
   let loaders=Math.ceil(weightVal/30);
-
-  // Минимальная стоимость грузчика
   let baseLoaderCost=2500;
-
-  // Стоимость этажей на каждого
   let floorCostPerLoader=0;
   if(!elevator.checked){
     floorCostPerLoader=(floorVal<5?2000:3000);
@@ -198,7 +191,6 @@ sendBtn.onclick = ()=>{
   let baseLoaderCost=2500;
   let floorCostPerLoader=(!elevator.checked?(floorVal<5?2000:3000):0);
   let total=6000 + kmVal*getPricePerKm(kmVal) + loaders*baseLoaderCost + loaders*floorCostPerLoader;
-
   let text=`Расчёт перевозки:
 Расстояние: ${kmVal} км
 Вес груза: ${weightVal} кг
@@ -206,10 +198,8 @@ sendBtn.onclick = ()=>{
 Грузчиков: ${loaders}
 Итоговая стоимость: ${total} тг
 Комментарий: ${comment.value}`;
-
   window.open(`https://wa.me/77066363705?text=${encodeURIComponent(text)}`,'_blank');
 };
 </script>
-
 </body>
 </html>
