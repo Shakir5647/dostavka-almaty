@@ -53,16 +53,24 @@ th{background:#22c55e;color:#fff}
 <h2>Наши услуги</h2>
 <div class="services">
 <div class="service-card">
-<img src="https://example.com/photo1.jpg" alt="Квартирные переезды">
-<h3>Квартирные переезды</h3>
+<img src="https://pixabay.com/get/gd3e38fb54dbfa3841a7c23e9d294e8b3d94639d3b1b93d5c68cf1a8d97a1d43bfefa7bb4d384aeddfeae3e1981a86bc1_1280.jpg" alt="Квартирный переезд">
+<h3>Квартирный переезд</h3>
 </div>
 <div class="service-card">
-<img src="https://example.com/photo2.jpg" alt="Перевозка грузов">
-<h3>Перевозка грузов</h3>
+<img src="https://pixabay.com/get/gf6b3bb6d89130bc3d1a99c7db7f8bf6ec4cc27bd801bdf253774faec055a3a85bb9d209d46313c3941b729529f49a15a_1280.jpg" alt="Офисный переезд">
+<h3>Офисный переезд</h3>
 </div>
 <div class="service-card">
-<img src="https://example.com/photo3.jpg" alt="Офисные переезды">
-<h3>Офисные переезды</h3>
+<img src="https://pixabay.com/get/gd9b3de0c87a0ea23d87ff1f9b52df6a25135d87b0e6ff82d93b5b5c1ab52b07b5a726a9a7b70cc5bac8108fdb61c18e1_1280.jpg" alt="Перевозка мебели">
+<h3>Перевозка мебели</h3>
+</div>
+<div class="service-card">
+<img src="https://pixabay.com/get/gb61c06b56b00ca46f78a0958127938488ea62fc512af828afc91c5c78013fb1c8b9c0add99cd3a2c285f9d449e64f467_1280.jpg" alt="Погрузочные работы">
+<h3>Погрузочные работы</h3>
+</div>
+<div class="service-card">
+<img src="https://pixabay.com/get/gcc7e3d829edb14989f4e6ba5c856067aa3e707b948741ea4d39eeef8f75cd5f55db44b3f3ab73b37feb5db159afd1b22c_1280.jpg" alt="Разгрузка и упаковка">
+<h3>Разгрузка и упаковка</h3>
 </div>
 </div>
 </div>
@@ -70,7 +78,7 @@ th{background:#22c55e;color:#fff}
 
 <section class="section" id="calc">
 <div class="container">
-<h2>Онлайн-калькулятор</h2>
+<h2>Онлайн‑калькулятор</h2>
 
 <label>Расстояние (км)</label>
 <div class="slider-container">
@@ -100,10 +108,10 @@ th{background:#22c55e;color:#fff}
 
 <p class="tooltip">
 30 кг = 1 грузчик<br>
-Минимальная стоимость 1 грузчика = 2 500 тг<br>
+Минимальная стоимость 1 грузчика = 2 500 тг<br>
 Без лифта:<br>
-1–4 этаж — 2 000 тг / этаж / грузчик<br>
-5 этаж и выше — 3 000 тг / этаж / грузчик
+1–4 этаж — 2 000 тг / грузчик<br>
+5 этаж и выше — 3 000 тг / грузчик
 </p>
 
 <p id="result"></p>
@@ -114,13 +122,13 @@ th{background:#22c55e;color:#fff}
 <section class="section">
 <div class="container">
 <h2>Тарифы</h2>
-<p style="text-align:center"><b>Минимальный заказ:</b> 6 000 тг</p>
+<p style="text-align:center"><b>Минимальный заказ:</b> 6 000 тг</p>
 <table>
 <tr><th>Расстояние</th><th>Цена</th></tr>
-<tr><td>0–10 км</td><td>1 200 тг / км</td></tr>
-<tr><td>10–20 км</td><td>1 000 тг / км</td></tr>
-<tr><td>20–40 км</td><td>900 тг / км</td></tr>
-<tr><td>40+ км</td><td>800 тг / км</td></tr>
+<tr><td>0–10 км</td><td>1 200 тг / км</td></tr>
+<tr><td>10–20 км</td><td>1 000 тг / км</td></tr>
+<tr><td>20–40 км</td><td>900 тг / км</td></tr>
+<tr><td>40+ км</td><td>800 тг / км</td></tr>
 </table>
 </div>
 </section>
@@ -158,20 +166,19 @@ function update(){
   let weightVal=+weight.value;
   let floorVal=+floor.value;
 
-  // Считаем количество грузчиков
+  // Количество грузчиков
   let loaders=Math.ceil(weightVal/30);
 
   // Минимальная стоимость грузчика
-  let baseLoaderCost = 2500;
+  let baseLoaderCost=2500;
 
-  // Стоимость этажей на каждого грузчика
-  let floorCostPerLoader = 0;
+  // Стоимость этажей на каждого
+  let floorCostPerLoader=0;
   if(!elevator.checked){
-    floorCostPerLoader = floorVal<5 ? 2000 : 3000;
+    floorCostPerLoader=(floorVal<5?2000:3000);
   }
 
-  // Общая стоимость
-  let total = 6000 + kmVal*getPricePerKm(kmVal) + loaders*baseLoaderCost + loaders*floorCostPerLoader*floorVal;
+  let total=6000 + kmVal*getPricePerKm(kmVal) + loaders*baseLoaderCost + loaders*floorCostPerLoader;
 
   kmValue.innerText=kmVal;
   weightValue.innerText=weightVal;
@@ -188,9 +195,9 @@ sendBtn.onclick = ()=>{
   let weightVal=+weight.value;
   let floorVal=+floor.value;
   let loaders=Math.ceil(weightVal/30);
-  let baseLoaderCost = 2500;
-  let floorCostPerLoader = (!elevator.checked) ? (floorVal<5?2000:3000) : 0;
-  let total = 6000 + kmVal*getPricePerKm(kmVal) + loaders*baseLoaderCost + loaders*floorCostPerLoader*floorVal;
+  let baseLoaderCost=2500;
+  let floorCostPerLoader=(!elevator.checked?(floorVal<5?2000:3000):0);
+  let total=6000 + kmVal*getPricePerKm(kmVal) + loaders*baseLoaderCost + loaders*floorCostPerLoader;
 
   let text=`Расчёт перевозки:
 Расстояние: ${kmVal} км
