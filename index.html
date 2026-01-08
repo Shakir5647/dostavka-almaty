@@ -11,106 +11,107 @@ body{background:#f5f5f5;color:#222;line-height:1.6}
 .container{width:90%;max-width:1100px;margin:auto}
 h1,h2{text-align:center;margin-bottom:20px}
 .section{padding:50px 0;background:#fff;margin-bottom:20px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.05)}
-.btn{display:inline-block;padding:14px 22px;background:#22c55e;color:#fff;text-decoration:none;border-radius:8px;font-weight:500;margin:5px;transition:.2s}
+.btn{display:inline-block;padding:14px 22px;background:#22c55e;color:#fff;text-decoration:none;border-radius:8px;font-weight:500;margin:5px;transition:.2s;border:none;cursor:pointer;text-align:center}
 .btn:hover{transform:scale(1.05)}
 .whatsapp{background:#25d366}
 input,textarea{width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ccc;font-size:16px}
 table{width:100%;border-collapse:collapse;margin-top:20px}
 th,td{padding:14px;border-bottom:1px solid #ddd;text-align:center}
 th{background:#22c55e;color:#fff}
-.tooltip{font-size:14px;color:#555;margin-top:6px}
+.tooltip{font-size:14px;color:#555;margin-top:6px;background:#fff8e1;padding:10px;border-radius:8px}
 .slider-container{display:flex;align-items:center;gap:15px;margin-bottom:15px}
-.slider-value{min-width:50px;text-align:center;font-weight:500}
-.hero{background:url('https://images.pexels.com/photos/6190332/pexels-photo-6190332.jpeg') center/cover;color:#fff;padding:100px 20px;text-align:center}
-.overlay{background:rgba(0,0,0,0.55);padding:80px 20px;border-radius:15px}
-#result{font-weight:700;font-size:18px;text-align:center;margin-top:15px}
-#highlighted{color:#ef4444}
+.slider-value{min-width:60px;text-align:center;font-weight:700;background:#eee;padding:5px;border-radius:5px}
+.hero{background:url('https://images.pexels.com/photos/6194414/pexels-photo-6194414.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') center/cover;color:#fff;padding:100px 20px;text-align:center}
+.overlay{background:rgba(0,0,0,0.55);padding:80px 20px;border-radius:15px;display:inline-block}
+#result{font-weight:700;font-size:18px;text-align:center;margin-top:15px;padding:15px;background:#f0fdf4;border-radius:8px}
+#highlighted{color:#ef4444;font-size:22px}
 .services{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin-top:30px}
-.service-card{flex:1 1 250px;background:#f9f9f9;padding:25px 15px;border-radius:12px;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.05);transition:.3s;font-size:18px;font-weight:500}
+.service-card{flex:1 1 200px;background:#f9f9f9;padding:0 0 15px 0;border-radius:12px;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.05);transition:.3s;overflow:hidden}
+.service-card img{width:100%;height:150px;object-fit:cover;margin-bottom:10px}
+.service-card b{display:block;padding:0 10px}
 .service-card:hover{transform:scale(1.03)}
-.sticky-whatsapp{position:fixed;right:20px;bottom:20px;background:#25d366;color:#fff;padding:16px 20px;border-radius:50px;text-decoration:none}
+.sticky-whatsapp{position:fixed;right:20px;bottom:20px;background:#25d366;color:#fff;padding:16px 20px;border-radius:50px;text-decoration:none;box-shadow:0 4px 10px rgba(0,0,0,0.2);z-index:1000}
 </style>
 </head>
 <body>
 
 <section class="hero">
+<div class="container">
 <div class="overlay">
-<h1>🚚 Грузоперевозки по Алматы</h1>
+<h1>🚚 Грузоперевозки Алматы</h1>
 <p>Газель • Грузчики • Переезды • Доставка</p>
 <a class="btn whatsapp" href="#calc">Рассчитать стоимость</a>
 <a class="btn" href="tel:+77066363705">Позвонить</a>
 </div>
+</div>
 </section>
 
-<!-- Наши услуги -->
 <section class="section" id="services">
 <div class="container">
 <h2>Наши услуги</h2>
 <div class="services">
   <div class="service-card">
-    Квартирный переезд
+    <img src="https://images.pexels.com/photos/3796810/pexels-photo-3796810.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Квартирный переезд">
+    <b>Квартирный переезд</b>
   </div>
   <div class="service-card">
-    Офисный переезд
+    <img src="https://images.pexels.com/photos/6333801/pexels-photo-6333801.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Офисный переезд">
+    <b>Офисный переезд</b>
   </div>
   <div class="service-card">
-    Перевозка мебели
+    <img src="https://images.pexels.com/photos/5025642/pexels-photo-5025642.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Перевозка мебели">
+    <b>Перевозка мебели</b>
   </div>
   <div class="service-card">
-    Погрузка и разгрузка
+    <img src="https://images.pexels.com/photos/6194093/pexels-photo-6194093.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Погрузка">
+    <b>Погрузка и разгрузка</b>
   </div>
   <div class="service-card">
-    Упаковка вещей
+    <img src="https://images.pexels.com/photos/4481258/pexels-photo-4481258.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Упаковка">
+    <b>Упаковка вещей</b>
   </div>
 </div>
 </div>
 </section>
 
-<!-- Калькулятор -->
 <section class="section" id="calc">
 <div class="container">
 <h2>Онлайн‑калькулятор</h2>
 
-<label>Расстояние (км)</label>
+<label>Расстояние: <b><span id="kmValue">25</span> км</b></label>
 <div class="slider-container">
 <input type="range" id="km" min="1" max="100" value="25">
-<div class="slider-value" id="kmValue">25</div>
 </div>
 
-<label>Вес груза (кг)</label>
+<label>Вес груза: <b><span id="weightValue">100</span> кг</b></label>
 <div class="slider-container">
-<input type="range" id="weight" min="10" max="500" step="10" value="60">
-<div class="slider-value" id="weightValue">60</div>
+<input type="range" id="weight" min="10" max="1000" step="10" value="100">
 </div>
 
-<label>Этаж</label>
+<label>Этаж: <b><span id="floorValue">1</span></b></label>
 <div class="slider-container">
 <input type="range" id="floor" min="1" max="20" value="1">
-<div class="slider-value" id="floorValue">1</div>
 </div>
 
-<label>
-<input type="checkbox" id="elevator" checked>
+<label style="display:block; margin: 10px 0; cursor:pointer">
+<input type="checkbox" id="elevator" checked style="width:auto">
  Есть лифт
 </label>
 
 <label>Комментарий</label>
 <textarea id="comment" placeholder="Например: диван, этаж, лифт"></textarea>
 
-<p class="tooltip">
-30 кг = 1 грузчик<br>
-Минимальная стоимость 1 грузчика = 2 500 тг<br>
-Без лифта:<br>
-1–4 этаж — 2 000 тг / грузчик<br>
-5 этаж и выше — 3 000 тг / грузчик
-</p>
+<div class="tooltip">
+<b>Правила расчета:</b><br>
+• 1 грузчик на каждые 30 кг (мин. 2 500 тг/чел)<br>
+• Без лифта: 1–4 этаж (+2 000 тг/чел), 5+ этаж (+3 000 тг/чел)
+</div>
 
 <p id="result"></p>
-<button class="btn whatsapp" id="sendBtn">Отправить расчёт в WhatsApp</button>
+<button class="btn whatsapp" id="sendBtn" style="width:100%; margin-top:10px">Отправить расчёт в WhatsApp</button>
 </div>
 </section>
 
-<!-- Таблица тарифов -->
 <section class="section">
 <div class="container">
 <h2>Тарифы</h2>
@@ -127,7 +128,7 @@ th{background:#22c55e;color:#fff}
 
 <footer class="section" style="text-align:center">
 <p>📞 +7 706 636 3705</p>
-<a class="btn whatsapp" href="https://wa.me/77066363705">WhatsApp</a>
+<a class="btn whatsapp" href="https://wa.me/77066363705">Написать в WhatsApp</a>
 <p>©️ 2026 Грузоперевозки Алматы</p>
 </footer>
 
@@ -146,54 +147,66 @@ const floorValue=document.getElementById("floorValue");
 const result=document.getElementById("result");
 const sendBtn=document.getElementById("sendBtn");
 
-function getPricePerKm(km){
-  if(km<=10) return 1200;
-  else if(km<=20) return 1000;
-  else if(km<=40) return 900;
-  else return 800;
+function getPricePerKm(k){
+  if(k<=10) return 1200;
+  if(k<=20) return 1000;
+  if(k<=40) return 900;
+  return 800;
 }
 
 function update(){
-  let kmVal=+km.value;
-  let weightVal=+weight.value;
-  let floorVal=+floor.value;
+  let kmVal = parseInt(km.value);
+  let weightVal = parseInt(weight.value);
+  let floorVal = parseInt(floor.value);
 
-  let loaders=Math.ceil(weightVal/30);
-  let baseLoaderCost=2500;
-  let floorCostPerLoader=0;
-  if(!elevator.checked){
-    floorCostPerLoader=(floorVal<5?2000:3000);
+  // 1. Количество грузчиков (1 чел на каждые 30 кг)
+  let loaders = Math.ceil(weightVal / 30);
+  
+  // 2. База (мин 2500 тг за каждого)
+  let baseLoadersCost = loaders * 2500;
+  
+  // 3. Доплата за этажи (если нет лифта)
+  let floorExtra = 0;
+  if (!elevator.checked && floorVal > 1) {
+    if (floorVal <= 4) {
+      floorExtra = loaders * 2000;
+    } else {
+      floorExtra = loaders * 3000;
+    }
   }
 
-  let total=6000 + kmVal*getPricePerKm(kmVal) + loaders*baseLoaderCost + loaders*floorCostPerLoader;
+  // 4. Стоимость машины (минимум 6000 тг)
+  let transportCost = kmVal * getPricePerKm(kmVal);
+  if (transportCost < 6000) transportCost = 6000;
 
-  kmValue.innerText=kmVal;
-  weightValue.innerText=weightVal;
-  floorValue.innerText=floorVal;
+  let total = transportCost + baseLoadersCost + floorExtra;
 
-  result.innerHTML=`Грузчиков: <b>${loaders}</b><br>Примерная стоимость: <span id="highlighted">${total} тг</span>`;
+  kmValue.innerText = kmVal;
+  weightValue.innerText = weightVal;
+  floorValue.innerText = floorVal;
+
+  result.innerHTML = `Грузчиков: <b>${loaders} чел.</b><br>Примерная стоимость: <span id="highlighted">${total.toLocaleString()} тг</span>`;
+  
+  return {total, loaders, kmVal, weightVal, floorVal, floorExtra};
 }
 
 [km,weight,floor,elevator].forEach(el=>el.addEventListener("input",update));
 update();
 
 sendBtn.onclick = ()=>{
-  let kmVal=+km.value;
-  let weightVal=+weight.value;
-  let floorVal=+floor.value;
-  let loaders=Math.ceil(weightVal/30);
-  let baseLoaderCost=2500;
-  let floorCostPerLoader=(!elevator.checked?(floorVal<5?2000:3000):0);
-  let total=6000 + kmVal*getPricePerKm(kmVal) + loaders*baseLoaderCost + loaders*floorCostPerLoader;
-  let text=`Расчёт перевозки:
-Расстояние: ${kmVal} км
-Вес груза: ${weightVal} кг
-Этаж: ${floorVal}
-Грузчиков: ${loaders}
-Итоговая стоимость: ${total} тг
+  const d = update();
+  let lift = elevator.checked ? "Да" : "Нет";
+  let text = `Расчёт грузоперевозки:
+Расстояние: ${d.kmVal} км
+Вес груза: ${d.weightVal} кг
+Нужно грузчиков: ${d.loaders} чел.
+Этаж: ${d.floorVal} (Лифт: ${lift})
+Итоговая стоимость: ${d.total.toLocaleString()} тг
 Комментарий: ${comment.value}`;
+  
   window.open(`https://wa.me/77066363705?text=${encodeURIComponent(text)}`,'_blank');
 };
 </script>
+
 </body>
 </html>
